@@ -17,8 +17,8 @@ public class HabilidadService implements IHabilidadService{
 	
 	@Override
 	public List<Habilidad> getHabilidad() {
-		List<Habilidad> habilidad = habilidadRepo.findAll();
-		return habilidad;
+	 List<Habilidad> habilidad = habilidadRepo.findAll();
+	return habilidad;	
 	}
 
 	@Override
@@ -28,15 +28,35 @@ public class HabilidadService implements IHabilidadService{
 	}
 
 	@Override
-	public void deletehabilidadById(String id) {
+	public void deletehabilidadById(Double id) {
 		habilidadRepo.deleteById(id);
 		
 	}
 
 	@Override
-	public Habilidad findHabilidadById(String id) {
-		Habilidad habilidad = habilidadRepo.findById(id).orElse(null);
-		return habilidad;
+	public Habilidad findHabilidadById(Double id) {
+                   return habilidadRepo.findById(id).orElse(null);
+		
 	}
+
+    @Override
+    public void updateHabilidadByCode(Double id, String nuevo_name, String nueva_descripcion) {
+         
+        //ocupo this porque llamo al mismo metdo findProducto de esta clase   
+        Habilidad habilidad = this.findHabilidadById(id);
+        
+        habilidad.setId(id);
+        habilidad.setName(nuevo_name);
+        habilidad.setDescripcion(nueva_descripcion);
+        
+    
+        //ocupo this porque ocupo el mismo metodo saveProducto de esta clase para guardar los cambios
+        this.saveHabilidad(habilidad);
+    }
+
+    @Override
+    public void updateHabilidad(Habilidad habilidad) {
+    this.saveHabilidad(habilidad);
+    }
 
 }

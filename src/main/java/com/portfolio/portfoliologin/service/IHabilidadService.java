@@ -6,17 +6,23 @@ import com.portfolio.portfoliologin.model.Habilidad;
 
 
 public interface IHabilidadService {
-	//Get list habilidades
+	                  
+                                      //Get list habilidades
 		public List <Habilidad> getHabilidad();
 		
 		//Save object Habilidad
 		public void saveHabilidad(Habilidad habilidad);
 		
 		//Delete object by Id
-		public void deletehabilidadById(String id);
+		public void deletehabilidadById(Double id);
 		
 		//Find Habilidad by ID
-		public Habilidad findHabilidadById(String is);
+		public Habilidad findHabilidadById(Double id);
 		
+                                     //editarHabilidad
+                                    public void updateHabilidadByCode(Double id, String name, String descripcion);
+                                    
+                                    //Edición: localhost:8181/habilidades/editar
+                                    public void updateHabilidad(Habilidad habilidad);   
 		
 }
