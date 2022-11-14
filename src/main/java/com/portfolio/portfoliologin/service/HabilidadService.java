@@ -28,19 +28,19 @@ public class HabilidadService implements IHabilidadService{
 	}
 
 	@Override
-	public void deletehabilidadById(Double id) {
+	public void deletehabilidadById(Long id) {
 		habilidadRepo.deleteById(id);
 		
 	}
 
 	@Override
-	public Habilidad findHabilidadById(Double id) {
+	public Habilidad findHabilidadById(Long id) {
                    return habilidadRepo.findById(id).orElse(null);
 		
 	}
 
     @Override
-    public void updateHabilidadByCode(Double id, String nuevo_name, String nueva_descripcion) {
+    public void updateHabilidadByCode(Long id, String nuevo_name, String nueva_descripcion) {
          
         //ocupo this porque llamo al mismo metdo findProducto de esta clase   
         Habilidad habilidad = this.findHabilidadById(id);

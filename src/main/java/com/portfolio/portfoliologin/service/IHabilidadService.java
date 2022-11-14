@@ -14,13 +14,13 @@ public interface IHabilidadService {
 		public void saveHabilidad(Habilidad habilidad);
 		
 		//Delete object by Id
-		public void deletehabilidadById(Double id);
+		public void deletehabilidadById(Long id);
 		
 		//Find Habilidad by ID
-		public Habilidad findHabilidadById(Double id);
+		public Habilidad findHabilidadById(Long id);
 		
                                      //editarHabilidad
-                                    public void updateHabilidadByCode(Double id, String name, String descripcion);
+                                    public void updateHabilidadByCode(Long id, String name, String descripcion);
                                     
                                     //Edición: localhost:8181/habilidades/editar
                                     public void updateHabilidad(Habilidad habilidad);   

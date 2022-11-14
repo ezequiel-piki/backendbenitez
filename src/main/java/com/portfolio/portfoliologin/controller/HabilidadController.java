@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RestController
 @RequestMapping("/habilidad")
 @CrossOrigin(origins = "https://frontendbenitez.web.app")
+//@CrossOrigin(origins = "http://localhost:4200")
 public class HabilidadController {
 	
 	@Autowired
@@ -39,22 +40,21 @@ public class HabilidadController {
    @PostMapping("/habilidades/crear")
    public void createHabilidad(@RequestBody Habilidad habilidad) {
    	habilidadService.saveHabilidad(habilidad);
-   	
    }
    
    @DeleteMapping("/habilidades/eliminar/{id}")
-   public void deleteHabilidadById(@PathVariable Double id) {
+   public void deleteHabilidadById(@PathVariable Long id) {
    habilidadService.deletehabilidadById(id);
    
    }
 
    @GetMapping("/habilidades/{id}")
-   public Habilidad findHabilidadById(@PathVariable Double id) {
+   public Habilidad findHabilidadById(@PathVariable Long id) {
      return habilidadService.findHabilidadById(id); 	
    }
    
    @PutMapping("/habilidades/edit/{id}")
-    public Habilidad updateHabilidadByCode(@PathVariable Double id, 
+    public Habilidad updateHabilidadByCode(@PathVariable Long id, 
                                                                    @RequestParam(required = false, name="name")String nuevo_nombre,
                                                                    @RequestParam(required = false, name="descripcion") String nueva_descripcion)
     {
@@ -68,7 +68,7 @@ public class HabilidadController {
     
     //Edición2: localhost:8181/habilidades/editar
       @PutMapping("/habilidades/editar/{id}")
-    public Habilidad updateHabilidad(@RequestBody Habilidad habilidad, @PathVariable Double id){
+    public Habilidad updateHabilidad(@RequestBody Habilidad habilidad, @PathVariable Long id){
     
         habilidadService.updateHabilidad(habilidad);
     

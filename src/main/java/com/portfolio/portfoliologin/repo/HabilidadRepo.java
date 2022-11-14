@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.portfolio.portfoliologin.model.Habilidad;
 
 @Repository
-public interface HabilidadRepo  extends JpaRepository <Habilidad, Double> {
+public interface HabilidadRepo  extends JpaRepository <Habilidad, Long> {
 
 }

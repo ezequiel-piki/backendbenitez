@@ -25,7 +25,7 @@ public class Habilidad {
 	
 	@Id
                   @GeneratedValue(strategy=GenerationType.AUTO)
-                   private Double id  ;
+                   private Long id  ;
 	
 	
 	private String name ;
