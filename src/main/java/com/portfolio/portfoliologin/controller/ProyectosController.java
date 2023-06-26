@@ -18,14 +18,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/proyectos")
-@CrossOrigin(origins = "https://frontendbenitez.web.app")
-//@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "https://frontendbenitez.web.app")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ProyectosController {
      @Autowired
     IProyectoService proyectoService;
 
     //Creación: localhost:8181/proyectos/crear
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/crear") 
     public void saveProyecto(@RequestBody Proyecto proyecto){
          
@@ -47,7 +47,7 @@ public class ProyectosController {
     
     //Eliminación: localhost:8181/proyecto/eliminar/{id_proyecto}
     @DeleteMapping("/eliminar/{id_proyecto}")
-    @PreAuthorize("hasRole('ADMIN')")
+   // @PreAuthorize("hasRole('ADMIN')")
     public void deleteProyectoById(@PathVariable Long id_proyecto){
     proyectoService.deleteProyectoById(id_proyecto);
     }

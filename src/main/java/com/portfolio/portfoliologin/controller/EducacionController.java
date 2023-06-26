@@ -27,7 +27,7 @@ public class EducacionController {
 
     //Creación: localhost:8181/educacion/crear
     @PostMapping("/crear")
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     public void saveEducacion(@RequestBody Educacion educacion){
          
         educacionService.saveEducacion(educacion);
@@ -48,7 +48,7 @@ public class EducacionController {
     
     //Eliminación: localhost:8181/educacion/eliminar/{id_educacion}
     @DeleteMapping("/eliminar/{id_educacion}")
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     public void deleteEducacionById(@PathVariable Long id_educacion){
     educacionService.deleteEducacionById(id_educacion);
     }
@@ -57,7 +57,7 @@ public class EducacionController {
     
       //Edición2: localhost:8181/educacion/editar
       @PutMapping("/editar/{id_educacion}")
-      @PreAuthorize("hasRole('ADMIN')")
+      //@PreAuthorize("hasRole('ADMIN')")
     public Educacion updateCliente(@RequestBody Educacion educacion, @PathVariable Long id_educacion){
     
         educacionService.updateEducacion(educacion);
