@@ -25,6 +25,7 @@ com\portfolio\portfoliologin\repo\HabilidadRepo.class
 com\portfolio\portfoliologin\security\jwt\JwtEntryPoint.class
 com\portfolio\portfoliologin\service\IProyectoService.class
 com\portfolio\portfoliologin\service\UserService.class
+com\portfolio\portfoliologin\WebConfig.class
 com\portfolio\portfoliologin\security\MainSecurity.class
 com\portfolio\portfoliologin\service\PersonaService.class
 com\portfolio\portfoliologin\controller\UserController.class
