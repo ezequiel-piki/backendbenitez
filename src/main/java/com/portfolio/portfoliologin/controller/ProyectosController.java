@@ -5,6 +5,7 @@ import com.portfolio.portfoliologin.model.Proyecto;
 import com.portfolio.portfoliologin.service.IProyectoService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +25,8 @@ public class ProyectosController {
     IProyectoService proyectoService;
 
     //Creación: localhost:8181/proyectos/crear
-    @PostMapping("/crear")
+    @PreAuthorize("hasRole('ADMIN')")
+    @PostMapping("/crear") 
     public void saveProyecto(@RequestBody Proyecto proyecto){
          
         proyectoService.saveProyecto(proyecto);
@@ -45,6 +47,7 @@ public class ProyectosController {
     
     //Eliminación: localhost:8181/proyecto/eliminar/{id_proyecto}
     @DeleteMapping("/eliminar/{id_proyecto}")
+    @PreAuthorize("hasRole('ADMIN')")
     public void deleteProyectoById(@PathVariable Long id_proyecto){
     proyectoService.deleteProyectoById(id_proyecto);
     }
@@ -53,7 +56,8 @@ public class ProyectosController {
     
       //Edición2: localhost:8181/proyecto/editar
       @PutMapping("/editar/{id_proyecto}")
-    public Proyecto updateProyecto(@RequestBody Proyecto proyecto, @PathVariable Long id_proyecto){
+      @PreAuthorize("hasRole('ADMIN')")
+      public Proyecto updateProyecto(@RequestBody Proyecto proyecto, @PathVariable Long id_proyecto){
     
         proyectoService.updateProyecto(proyecto);
     

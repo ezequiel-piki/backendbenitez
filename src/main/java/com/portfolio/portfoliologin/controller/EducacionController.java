@@ -5,6 +5,7 @@ import com.portfolio.portfoliologin.model.Educacion;
 import com.portfolio.portfoliologin.service.IEducacionService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,6 +27,7 @@ public class EducacionController {
 
     //Creación: localhost:8181/educacion/crear
     @PostMapping("/crear")
+    @PreAuthorize("hasRole('ADMIN')")
     public void saveEducacion(@RequestBody Educacion educacion){
          
         educacionService.saveEducacion(educacion);
@@ -46,6 +48,7 @@ public class EducacionController {
     
     //Eliminación: localhost:8181/educacion/eliminar/{id_educacion}
     @DeleteMapping("/eliminar/{id_educacion}")
+    @PreAuthorize("hasRole('ADMIN')")
     public void deleteEducacionById(@PathVariable Long id_educacion){
     educacionService.deleteEducacionById(id_educacion);
     }
@@ -54,6 +57,7 @@ public class EducacionController {
     
       //Edición2: localhost:8181/educacion/editar
       @PutMapping("/editar/{id_educacion}")
+      @PreAuthorize("hasRole('ADMIN')")
     public Educacion updateCliente(@RequestBody Educacion educacion, @PathVariable Long id_educacion){
     
         educacionService.updateEducacion(educacion);
