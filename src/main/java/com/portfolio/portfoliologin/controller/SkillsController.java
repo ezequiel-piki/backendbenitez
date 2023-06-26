@@ -27,7 +27,7 @@ public class SkillsController {
 
     //Creación: localhost:8181/skills/crear
     @PostMapping("/crear")
-    @PreAuthorize("hasRole('ADMIN')")
+   // @PreAuthorize("hasRole('ADMIN')")
     public void saveSkill(@RequestBody Skill skill){
          
         skillService.saveSkill(skill);
@@ -48,14 +48,14 @@ public class SkillsController {
     
     //Eliminación: localhost:8181/skills/eliminar/{id_skill}
     @DeleteMapping("/eliminar/{id_skill}")
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     public void deleteSkillById(@PathVariable Long id_skill){
     skillService.deleteSkillById(id_skill);
     }
     
     //Edición: localhost:8181/skills/editar/{id_skill}
     @PutMapping("/edit/{id_skill}")
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     public Skill updateSkillByCode(@PathVariable Long id_skill, 
                                                                    @RequestParam(required=false, name="nombre" ) String nuevo_nombre, 
                                                                    @RequestParam(required=false, name="porcentaje" )   int nuevo_porcentaje) 

@@ -39,13 +39,13 @@ public class HabilidadController {
 	}
    
    @PostMapping("/habilidades/crear")
-   @PreAuthorize("hasRole('ADMIN')")
+   //@PreAuthorize("hasRole('ADMIN')")
    public void createHabilidad(@RequestBody Habilidad habilidad) {
    	habilidadService.saveHabilidad(habilidad);
    }
    
    @DeleteMapping("/habilidades/eliminar/{id}")
-   @PreAuthorize("hasRole('ADMIN')")
+   //@PreAuthorize("hasRole('ADMIN')")
    public void deleteHabilidadById(@PathVariable Long id) {
    habilidadService.deletehabilidadById(id);
    
@@ -57,7 +57,7 @@ public class HabilidadController {
    }
    
    @PutMapping("/habilidades/edit/{id}")
-   @PreAuthorize("hasRole('ADMIN')")
+   //@PreAuthorize("hasRole('ADMIN')")
     public Habilidad updateHabilidadByCode(@PathVariable Long id, 
                                                                    @RequestParam(required = false, name="name")String nuevo_nombre,
                                                                    @RequestParam(required = false, name="descripcion") String nueva_descripcion)
